@@ -74,6 +74,9 @@ public class Server extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource() == startButton) {
+            new ServerManageFrame();
+            this.dispose();
+        }
     }
 }

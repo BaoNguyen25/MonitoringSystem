@@ -98,6 +98,9 @@ public class Client extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource() == connectButton) {
+            new ClientManageFrame();
+            this.dispose();
+        }
     }
 }
