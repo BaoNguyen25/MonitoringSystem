@@ -75,8 +75,14 @@ public class Server extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == startButton) {
-            new ServerManageFrame();
-            this.dispose();
+            int p = Integer.parseInt(port.getText());
+            if(p > 0 && p < 10000) {
+                new ServerManageFrame(p);
+                this.dispose();
+            }
+            else {
+                JOptionPane.showMessageDialog(this, "Invalid");
+            }
         }
     }
 }
