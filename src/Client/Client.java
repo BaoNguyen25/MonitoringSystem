@@ -99,7 +99,10 @@ public class Client extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == connectButton) {
-            new ClientHandler();
+            int portVal = Integer.parseInt(port.getText());
+            String ipVal = ip.getText();
+            String nameVal = name.getText();
+            new ClientHandler(portVal, ipVal, nameVal);
             this.dispose();
         }
     }

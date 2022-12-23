@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709869c5-50e5-4a16-a635-e3a13d932c24" name="Changes" comment="add manage client and server frames">
+    <list default="true" id="709869c5-50e5-4a16-a635-e3a13d932c24" name="Changes" comment="establish the connection for clients">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientManageFrame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/ServerManageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerManageFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1671352518969</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="establish the connection for clients">
+      <created>1671462573570</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1671462573570</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +136,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="implement interface of server and client" />
     <MESSAGE value="add manage client and server frames" />
-    <option name="LAST_COMMIT_MESSAGE" value="add manage client and server frames" />
+    <MESSAGE value="establish the connection for clients" />
+    <option name="LAST_COMMIT_MESSAGE" value="establish the connection for clients" />
   </component>
 </project>
