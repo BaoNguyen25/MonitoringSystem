@@ -20,7 +20,7 @@ public class ServerManageFrame extends JFrame implements ActionListener {
     private JButton disconnectBtn, searchBtn, loadBtn;
     private JLabel ipVal, portVal;
     private JTextField searchText;
-    public static JTable jTable;
+    public static JTable table;
     public static JList<String> clients;
     public static Map<String,String> mapPath = new HashMap<>();
     public static Map<String, Socket> map = new HashMap<>();
@@ -55,19 +55,34 @@ public class ServerManageFrame extends JFrame implements ActionListener {
         searchText = new JTextField("");
         portVal = new JLabel(String.valueOf(port));
         ipVal = new JLabel(String.valueOf(address));
-        clients = new JList<String>();
+        clients = new JList<>();
         JScrollPane paneUser = new JScrollPane(clients);
 
-        ipLabel.setBounds(10, 8, 80, 30);
-        ipVal.setBounds(30, 8, 100, 30);
-        portLabel.setBounds(150, 8, 60, 30);
-        portVal.setBounds(200, 8, 70, 30);
-        listClient.setBounds(10, 80, 100, 30);
-        searchBtn.setBounds(530, 70, 150, 30);
+        portLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
+        portLabel.setForeground(Color.orange);
+        portVal.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
+        portVal.setForeground(Color.orange);
+
+        ipLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
+        ipLabel.setForeground(Color.orange);
+        ipVal.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
+        ipVal.setForeground(Color.orange);
+        listClient.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
+        listClient.setForeground(Color.orange);
+
+        searchBtn.setBackground(Color.PINK);
+        loadBtn.setBackground(Color.PINK);
+
+        ipLabel.setBounds(400, 20, 80, 30);
+        ipVal.setBounds(430, 20, 200, 30);
+        portLabel.setBounds(700, 20, 60, 30);
+        portVal.setBounds(750, 20, 70, 30);
+        listClient.setBounds(1080, 80, 100, 30);
+        searchBtn.setBounds(400, 70, 150, 30);
         disconnectBtn.setBounds(0, 0, 0, 0);
-        searchText.setBounds(147, 70, 380, 30);
-        loadBtn.setBounds(1071, 70, 100, 30);
-        paneUser.setBounds(10, 110, 130, 320);
+        searchText.setBounds(10, 70, 380, 30);
+        loadBtn.setBounds(940, 70, 100, 30);
+        paneUser.setBounds(1048, 110, 130, 320);
 
         container.setLayout(null);
         container.add(portLabel);
@@ -94,14 +109,15 @@ public class ServerManageFrame extends JFrame implements ActionListener {
                 return returnValue;
             }
         };
-        jTable = new JTable();
-        jTable.setModel(jobsModel);
-        jTable.setAutoCreateRowSorter(true);
-        final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(jobsModel);
-        jTable.setRowSorter(sorter);
-        jTable.setBounds(145, 110, 1030, 320);
 
-        TableColumnModel columnModel = jTable.getColumnModel();
+        table = new JTable();
+        table.setModel(jobsModel);
+        table.setAutoCreateRowSorter(true);
+        final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(jobsModel);
+        table.setRowSorter(sorter);
+        table.setBounds(145, 110, 1030, 320);
+
+        TableColumnModel columnModel = table.getColumnModel();
         columnModel.getColumn(0).setPreferredWidth(20);
         columnModel.getColumn(1).setPreferredWidth(150);
         columnModel.getColumn(2).setPreferredWidth(100);
@@ -109,10 +125,11 @@ public class ServerManageFrame extends JFrame implements ActionListener {
         columnModel.getColumn(4).setPreferredWidth(100);
         columnModel.getColumn(5).setPreferredWidth(400);
 
-        JScrollPane sp = new JScrollPane(jTable);
-        sp.setBounds(145, 110, 1030, 320);
+        JScrollPane sp = new JScrollPane(table);
+        sp.setBounds(10, 110, 1030, 320);
         container.add(sp);
 
+        container.setBackground(new Color(81,80,106));
         this.setTitle("Server Monitoring");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1200, 480);

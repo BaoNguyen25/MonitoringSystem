@@ -1,0 +1,19 @@
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/25 23:33:13,Connected,Vin,(Notification) Vin connected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 10:06:14,Connected,Vin,(Notification) Vin connected to server!}
+{2,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 10:06:56,Connected,Vin,(Notification) Vin connected to server!}
+{3,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 10:07:45,Connected,Vin,(Notification) Vin connected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 10:30:36,Connected,Vin,(Notification) Vin connected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 10:49:17,Connected,Vin,(Notification) Vin connected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 11:19:59,Connected,Vin,(Notification) Vin connected to server!}
+{2,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 11:20:13,Connected,Vin,(Notification) Vin connected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 11:47:16,Connected,Vin,(Notification) Vin connected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 13:08:52,Connected,Vin,(Notification) Vin connected to server!}
+{2,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 13:08:56,Disconnected,Vin,(Notification) Vin disconnected to server!}
+{1,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:30,Connected,Vin,(Notification) Vin connected to server!}
+{2,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:34,Disconnected,Vin,(Notification) Vin disconnected to the server!}
+{3,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:38,Connected,Vin,(Notification) Vin connected to the server!}
+{4,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:38,Modified,Vin,A file has been modified : logs.txt}
+{5,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:39,Connected,Vin,(Notification) Vin connected to server!}
+{6,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:44,Disconnected,Vin,(Notification) Vin disconnected to the server!}
+{7,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:49,Connected,Vin,(Notification) Vin connected to the server!}
+{8,C:\Users\Vin\Desktop\MonitoringSystem\,2022/12/26 14:38:51,Disconnected,Vin,(Notification) Vin disconnected to the server!}
