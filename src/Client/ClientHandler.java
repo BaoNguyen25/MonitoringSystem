@@ -61,15 +61,15 @@ public class ClientHandler extends JFrame implements ActionListener {
         browseBtn = new JButton("Browse");
         loadBtn = new JButton("Load logs");
         connectBtn = new JButton("Disconnect");
-        pathLabel = new JLabel("Path + " + pathDirectory);
+        pathLabel = new JLabel("Path: " + pathDirectory);
         searchText = new JTextField("");
-        textPort = new JTextField(port);
+        textPort = new JTextField(Integer.toString(port));
         textIp = new JTextField(ip);
 
-        ipLabel.setBounds(10, 28, 70, 30);
-        textIp.setBounds(80, 28, 70, 30);
+        ipLabel.setBounds(15, 28, 70, 30);
+        textIp.setBounds(40, 28, 100, 30);
         portLabel.setBounds(180, 28, 50, 30);
-        textPort.setBounds(230, 28, 50, 30);
+        textPort.setBounds(220, 28, 50, 30);
         nameLabel.setBounds(300, 28, 100, 30);
         connectBtn.setBounds(400, 28, 150, 30);
         pathLabel.setBounds(600, 28, 600, 30);
@@ -77,6 +77,20 @@ public class ClientHandler extends JFrame implements ActionListener {
         searchBtn.setBounds(400, 80, 150, 30);
         searchText.setBounds(10, 80, 380, 30);
         loadBtn.setBounds(1050, 80, 100, 30);
+
+        searchBtn.setBackground(Color.PINK);
+        connectBtn.setBackground(Color.PINK);
+        loadBtn.setBackground(Color.PINK);
+        browseBtn.setBackground(Color.PINK);
+        pathLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 18));
+        pathLabel.setForeground(Color.orange);
+        ipLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 15));
+        ipLabel.setForeground(Color.orange);
+        portLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 15));
+        portLabel.setForeground(Color.orange);
+        nameLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 15));
+        nameLabel.setForeground(Color.orange);
+
 
         connectBtn.addActionListener(this);
         browseBtn.addActionListener(this);
@@ -127,6 +141,7 @@ public class ClientHandler extends JFrame implements ActionListener {
         sp.setBounds(10, 120, 1160, 300);
         container.add(sp);
 
+        container.setBackground(new Color(80,81,106));
         this.setTitle("Client Monitoring");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1200, 480);

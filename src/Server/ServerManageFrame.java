@@ -1,6 +1,8 @@
 package Server;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
@@ -8,12 +10,15 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.HashMap;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class ServerManageFrame extends JFrame implements ActionListener {
 
@@ -55,6 +60,7 @@ public class ServerManageFrame extends JFrame implements ActionListener {
         searchText = new JTextField("");
         portVal = new JLabel(String.valueOf(port));
         ipVal = new JLabel(String.valueOf(address));
+
         clients = new JList<>();
         JScrollPane paneUser = new JScrollPane(clients);
 
@@ -94,7 +100,6 @@ public class ServerManageFrame extends JFrame implements ActionListener {
         container.add(searchText);
         container.add(portVal);
         container.add(ipVal);
-        container.add(clients);
         container.add(paneUser);
 
         jobsModel = new DefaultTableModel(
@@ -142,4 +147,5 @@ public class ServerManageFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
     }
+
 }
