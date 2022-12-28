@@ -3,8 +3,6 @@ package Client;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
-import javax.swing.table.TableModel;
-import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -214,7 +212,7 @@ public class ClientHandler extends JFrame implements ActionListener {
             }
         } else if (e.getSource() == browseBtn) {
             JFileChooser myFileChooser = new JFileChooser();
-            myFileChooser.setDialogTitle("select folder");
+            myFileChooser.setDialogTitle("Select folder");
             if (Files.isDirectory(Paths.get(pathDirectory))) {
                 myFileChooser.setCurrentDirectory(new File(pathDirectory));
             }
