@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709869c5-50e5-4a16-a635-e3a13d932c24" name="Changes" comment="complete watching file changes">
+    <list default="true" id="709869c5-50e5-4a16-a635-e3a13d932c24" name="Changes" comment="fix listing connected users and clients ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Bao/logs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vin/logs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/abc/New Text Document.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientReceive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/FileHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerReceive.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReceive.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/FileHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/ServerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/ServerManageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerManageFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerReceive.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672048108462</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix listing connected users and clients ui">
+      <created>1672160039440</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1672160039440</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -178,10 +182,11 @@
     <MESSAGE value="establish the connection for clients" />
     <MESSAGE value="implement server and client frames" />
     <MESSAGE value="complete watching file changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="complete watching file changes" />
+    <MESSAGE value="fix listing connected users and clients ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix listing connected users and clients ui" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MonitoringSystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1672023008582" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/MonitoringSystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1672221452384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Client.*</FILTER>
     </SUITE>
   </component>

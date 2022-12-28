@@ -95,6 +95,7 @@ public class ClientHandler extends JFrame implements ActionListener {
         connectBtn.addActionListener(this);
         browseBtn.addActionListener(this);
         searchBtn.addActionListener(this);
+        loadBtn.addActionListener(this);
 
         container.add(portLabel);
         container.add(ipLabel);
@@ -124,9 +125,6 @@ public class ClientHandler extends JFrame implements ActionListener {
 
         jTable = new JTable();
         jTable.setModel(jobsModel);
-        jTable.setAutoCreateRowSorter(true);
-        final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(jobsModel);
-        jTable.setRowSorter(sorter);
         jTable.setBounds(10, 120, 1160, 300);
 
         TableColumnModel columnModel = jTable.getColumnModel();
@@ -232,6 +230,26 @@ public class ClientHandler extends JFrame implements ActionListener {
                 }
 
             }
+        } else if(e.getSource() == loadBtn) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Select file");
+            if(Files.isDirectory(Paths.get(pathDirectory))) {
+                fileChooser.setCurrentDirectory(new File(pathDirectory));
+            }
+
+            int result = fileChooser.showOpenDialog(container);
+            if(result == fileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getCurrentDirectory().getPath() + "\\logs.txt";
+                FileHandler fh = new FileHandler();
+                clearTable();
+                fh.readFile(path);
+            }
+        }
+    }
+    void clearTable() {
+        int rowCount = jobsModel.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            jobsModel.removeRow(i);
         }
     }
 }

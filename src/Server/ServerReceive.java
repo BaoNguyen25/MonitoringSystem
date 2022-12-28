@@ -47,7 +47,6 @@ public class ServerReceive implements Runnable{
                         ServerManageFrame.map.put(name, client);
                         ServerManageFrame.mapPath.put(name, path);
                         ServerManageFrame.clients.setListData(clientName);
-                        System.out.println(clientName);
                         new ServerSender(clientList, name, "2", msg);
                         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
                         Date date = new Date();

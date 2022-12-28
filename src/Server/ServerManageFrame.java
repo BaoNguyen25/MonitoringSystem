@@ -1,8 +1,6 @@
 package Server;
 
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
@@ -10,17 +8,18 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class ServerManageFrame extends JFrame implements ActionListener {
+public class ServerManageFrame extends JFrame implements ActionListener{
 
     private JButton disconnectBtn, searchBtn, loadBtn;
     private JLabel ipVal, portVal;
@@ -32,6 +31,8 @@ public class ServerManageFrame extends JFrame implements ActionListener {
     public static String address;
     public static String pathDirectory = "D:\\";
     public static DefaultTableModel jobsModel;
+    private Container container;
+    final TableRowSorter<TableModel> sorter = new TableRowSorter<>();
 
     public ServerManageFrame(int port) {
 
@@ -50,7 +51,7 @@ public class ServerManageFrame extends JFrame implements ActionListener {
             }
         }
 
-        Container container = this.getContentPane();
+        container = this.getContentPane();
         JLabel portLabel = new JLabel("Port: ");
         JLabel ipLabel = new JLabel("IP: ");
         JLabel listClient = new JLabel("Clients");
@@ -90,6 +91,11 @@ public class ServerManageFrame extends JFrame implements ActionListener {
         loadBtn.setBounds(940, 70, 100, 30);
         paneUser.setBounds(1048, 110, 130, 320);
 
+
+        loadBtn.addActionListener(this);
+        searchBtn.addActionListener(this);
+        disconnectBtn.addActionListener(this);
+
         container.setLayout(null);
         container.add(portLabel);
         container.add(ipLabel);
@@ -117,9 +123,6 @@ public class ServerManageFrame extends JFrame implements ActionListener {
 
         table = new JTable();
         table.setModel(jobsModel);
-        table.setAutoCreateRowSorter(true);
-        final TableRowSorter<TableModel> sorter = new TableRowSorter<TableModel>(jobsModel);
-        table.setRowSorter(sorter);
         table.setBounds(145, 110, 1030, 320);
 
         TableColumnModel columnModel = table.getColumnModel();
@@ -133,8 +136,21 @@ public class ServerManageFrame extends JFrame implements ActionListener {
         JScrollPane sp = new JScrollPane(table);
         sp.setBounds(10, 110, 1030, 320);
         container.add(sp);
-
         container.setBackground(new Color(81,80,106));
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if(ServerHandler.clientList != null && ServerHandler.clientList.size() != 0) {
+                    try {
+                        new ServerSender(ServerHandler.clientList, "Server die", "5", "Server");
+                    } catch(IOException e1) {
+                        e1.printStackTrace();
+                    }
+                }
+                System.exit(0);
+            }
+        });
+
         this.setTitle("Server Monitoring");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         this.setSize(1200, 480);
@@ -145,7 +161,28 @@ public class ServerManageFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getSource() == loadBtn) {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Select file");
+            if(Files.isDirectory(Paths.get(pathDirectory))) {
+                fileChooser.setCurrentDirectory(new File(pathDirectory));
+            }
+
+            int result = fileChooser.showOpenDialog(container);
+            if(result == fileChooser.APPROVE_OPTION) {
+                String path = fileChooser.getCurrentDirectory().getPath() + "\\logs.txt";
+                FileHandler fh = new FileHandler();
+                clearTable();
+                fh.readFile(path);
+            }
+        }
+
 
     }
-
+    void clearTable() {
+        int rowCount = jobsModel.getRowCount();
+        for (int i = rowCount - 1; i >= 0; i--) {
+            jobsModel.removeRow(i);
+        }
+    }
 }

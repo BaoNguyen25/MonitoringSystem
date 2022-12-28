@@ -28,7 +28,6 @@ public class ClientReceive implements Runnable {
                 String[] str = s.split("\\.");
                 String info = str[0];
                 String msg = str[1];
-                String name = str[2];
                 if (info.equals("1")) {
                 } else if (info.equals("2") || info.equals("3")) {
                     if (info.equals("2")) {
