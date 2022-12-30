@@ -1,7 +1,5 @@
 package Client;
 
-import Server.ServerManageFrame;
-
 import java.io.*;
 import java.util.Scanner;
 

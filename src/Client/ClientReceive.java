@@ -71,7 +71,13 @@ public class ClientReceive implements Runnable {
                         FileHandler fh = new FileHandler();
                         fh.writeToFile(data, ClientHandler.pathDirectory, ClientHandler.nameClient);
                     }
-                } else if (info.equals("13")) {
+                } else if(info.equals("4")) {
+                    ClientHandler.connectBtn.setText("Log-in");
+                    ClientHandler.socket.close();
+                    ClientHandler.socket = null;
+                    JOptionPane.showMessageDialog(ClientHandler.container, "This username already existed!");
+                    break;
+                }else if (info.equals("13")) {
                     ClientHandler.pathDirectory = msg + "\\";
                     ClientHandler.pathLabel.setText("Path: " + msg);
 

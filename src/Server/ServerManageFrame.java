@@ -28,7 +28,7 @@ public class ServerManageFrame extends JFrame implements ActionListener{
     public static JTable table;
     public static JList<String> clients;
     public static Map<String,String> mapPath = new HashMap<>();
-    public static Map<String, Socket> map = new HashMap<>();
+    public static Map<String,Socket> map = new HashMap<>();
     public static String address;
     public static String pathDirectory = "D:\\";
     public static DefaultTableModel jobsModel;
@@ -65,43 +65,39 @@ public class ServerManageFrame extends JFrame implements ActionListener{
 
         clients = new JList<>();
         JScrollPane paneUser = new JScrollPane(clients);
-        clients.addListSelectionListener(new ListSelectionListener() {
+        clients.addListSelectionListener(e -> {
 
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
+            if (!e.getValueIsAdjusting()) {
+                JList source = (JList) e.getSource();
+                String selected = source.getSelectedValue().toString();
+                JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setDialogTitle("Select Folder");
+                if(Files.isDirectory(Paths.get(mapPath.get(selected)))) {
+                    fileChooser.setCurrentDirectory(new File(mapPath.get(selected)));
+                }
+                int result = fileChooser.showOpenDialog(container);
+                if(result == fileChooser.APPROVE_OPTION) {
+                    String pathClient = fileChooser.getCurrentDirectory().getAbsolutePath();
+                    try {
+                        new ServerSender(map.get(selected), pathClient, "13", "Server");
+                        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                        Date date = new Date();
 
-                if (!e.getValueIsAdjusting()) {
-                    JList source = (JList) e.getSource();
-                    String selected = source.getSelectedValue().toString();
-                    JFileChooser fileChooser = new JFileChooser();
-                    fileChooser.setDialogTitle("Select Folder");
-                    if(Files.isDirectory(Paths.get(mapPath.get(selected)))) {
-                        fileChooser.setCurrentDirectory(new File(mapPath.get(selected)));
-                    }
-                    int result = fileChooser.showOpenDialog(container);
-                    if(result == fileChooser.APPROVE_OPTION) {
-                        String pathClient = fileChooser.getCurrentDirectory().getAbsolutePath();
-                        try {
-                            new ServerSender(map.get(selected), pathClient, "13", "Server");
-                            DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                            Date date = new Date();
+                        Object[] obj = new Object[] { jobsModel.getRowCount() + 1, pathClient,
+                                dateFormat.format(date), "Change path",
+                                selected, "Change path monitoring system"};
 
-                            Object[] obj = new Object[] { jobsModel.getRowCount() + 1, pathClient,
-                                    dateFormat.format(date), "Change path",
-                                    selected, "Change path monitoring system"};
-
-                            String data = "{" + (jobsModel.getRowCount() + 1) + ","
-                                    + pathClient + "," +
-                                    dateFormat.format(date) + "," + "Change path" + "," +
-                                    selected + "," +
-                                    "Change path monitoring systtem" + "}";
-                            FileHandler fh = new FileHandler();
-                            fh.writeToFile(data, pathDirectory);
-                            jobsModel.addRow(obj);
-                            table.setModel(jobsModel);
-                        } catch(IOException e1) {
-                            e1.printStackTrace();
-                        }
+                        String data = "{" + (jobsModel.getRowCount() + 1) + ","
+                                + pathClient + "," +
+                                dateFormat.format(date) + "," + "Change path" + "," +
+                                selected + "," +
+                                "Change path monitoring system" + "}";
+                        FileHandler fh = new FileHandler();
+                        fh.writeToFile(data, pathDirectory);
+                        jobsModel.addRow(obj);
+                        table.setModel(jobsModel);
+                    } catch(IOException e1) {
+                        e1.printStackTrace();
                     }
                 }
             }

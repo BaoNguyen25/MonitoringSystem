@@ -6,6 +6,8 @@ import javax.swing.table.TableColumnModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.IOException;
 import java.net.Socket;
@@ -28,8 +30,7 @@ public class ClientHandler extends JFrame implements ActionListener {
     int globalPort;
     public static JLabel pathLabel;
     private JTextField textIp, textPort;
-    private JTextField searchText;
-    private JButton searchBtn, browseBtn, loadBtn;
+    private JButton browseBtn, loadBtn;
     public static Container container;
     public ClientHandler(int port, String ip, String name) {
         pathDirectory = Paths.get(".").normalize().toAbsolutePath() + "\\";
@@ -55,12 +56,10 @@ public class ClientHandler extends JFrame implements ActionListener {
         JLabel portLabel = new JLabel("Port: ");
         JLabel ipLabel = new JLabel("IP: ");
         JLabel nameLabel = new JLabel("Name: " + name);
-        searchBtn = new JButton("Search");
         browseBtn = new JButton("Browse");
         loadBtn = new JButton("Load logs");
         connectBtn = new JButton("Disconnect");
         pathLabel = new JLabel("Path: " + pathDirectory);
-        searchText = new JTextField("");
         textPort = new JTextField(Integer.toString(port));
         textIp = new JTextField(ip);
 
@@ -72,11 +71,8 @@ public class ClientHandler extends JFrame implements ActionListener {
         connectBtn.setBounds(400, 28, 150, 30);
         pathLabel.setBounds(600, 28, 600, 30);
         browseBtn.setBounds(1050, 28, 100, 30);
-        searchBtn.setBounds(400, 80, 150, 30);
-        searchText.setBounds(10, 80, 380, 30);
         loadBtn.setBounds(1050, 80, 100, 30);
 
-        searchBtn.setBackground(Color.PINK);
         connectBtn.setBackground(Color.PINK);
         loadBtn.setBackground(Color.PINK);
         browseBtn.setBackground(Color.PINK);
@@ -92,18 +88,15 @@ public class ClientHandler extends JFrame implements ActionListener {
 
         connectBtn.addActionListener(this);
         browseBtn.addActionListener(this);
-        searchBtn.addActionListener(this);
         loadBtn.addActionListener(this);
 
         container.add(portLabel);
         container.add(ipLabel);
         container.add(nameLabel);
-        container.add(searchBtn);
         container.add(browseBtn);
         container.add(loadBtn);
         container.add(connectBtn);
         container.add(pathLabel);
-        container.add(searchText);
         container.add(textIp);
         container.add(textPort);
         container.setLayout(null);
@@ -132,11 +125,25 @@ public class ClientHandler extends JFrame implements ActionListener {
         columnModel.getColumn(3).setPreferredWidth(100);
         columnModel.getColumn(4).setPreferredWidth(100);
         columnModel.getColumn(5).setPreferredWidth(400);
+
         // adding it to JScrollPane
         JScrollPane sp = new JScrollPane(jTable);
         sp.setBounds(10, 120, 1160, 300);
         container.add(sp);
-
+        this.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if(socket != null && socket.isConnected()) {
+                    try {
+                        new ClientSender(socket, "Disconnected", "3", nameClient, pathDirectory);
+                        MonitorFile.watchService.close();
+                    } catch(Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+                System.exit(0);
+            }
+        });
         container.setBackground(new Color(80,81,106));
         this.setTitle("Client Monitoring");
         this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -179,7 +186,7 @@ public class ClientHandler extends JFrame implements ActionListener {
                     jobsModel.addRow(obj);
                     jTable.setModel(jobsModel);
                 } catch (Exception e2) {
-                    JOptionPane.showMessageDialog(this, "Can't connect check ip and port");
+                    JOptionPane.showMessageDialog(this, "Wrong Port or IP!");
                 }
             } else if (socket != null && socket.isConnected()) {
                 try {
