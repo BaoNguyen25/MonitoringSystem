@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="709869c5-50e5-4a16-a635-e3a13d932c24" name="Changes" comment="implement search logs by name">
+    <list default="true" id="709869c5-50e5-4a16-a635-e3a13d932c24" name="Changes" comment="fix close client and server window">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/FileHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/FileHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientReceive.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Client/ClientReceive.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MonitoringSystem/Server/ServerManageFrame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/ClientReceive.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/ClientReceive.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Client/FileHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client/FileHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/ServerManageFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/ServerManageFrame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672235207423</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fix close client and server window">
+      <created>1672383051927</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1672383051927</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -202,7 +211,8 @@
     <MESSAGE value="fix listing connected users and clients ui" />
     <MESSAGE value="fix loading old logs" />
     <MESSAGE value="implement search logs by name" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement search logs by name" />
+    <MESSAGE value="fix close client and server window" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix close client and server window" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MonitoringSystem$Main.ic" NAME="Main Coverage Results" MODIFIED="1672221452384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

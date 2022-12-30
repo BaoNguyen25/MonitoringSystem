@@ -48,9 +48,9 @@ public class Client extends JFrame implements ActionListener {
         JPanel textFieldPanel = new JPanel();
         textFieldPanel.setPreferredSize(new Dimension(100, 70));
         textFieldPanel.setLayout(null);
-        ip = new JTextField("");
-        port = new JTextField("");
-        name = new JTextField("");
+        ip = new JTextField("192.168.0.101");
+        port = new JTextField("123");
+        name = new JTextField("Bao");
         ip.setBounds(0,12,280,30);
         ip.setFont(new Font("Gill Sans MT", Font.PLAIN, 15));
         ip.setPreferredSize(new Dimension(100, 30));

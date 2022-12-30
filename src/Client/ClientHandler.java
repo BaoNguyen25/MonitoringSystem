@@ -63,26 +63,26 @@ public class ClientHandler extends JFrame implements ActionListener {
         textPort = new JTextField(Integer.toString(port));
         textIp = new JTextField(ip);
 
-        ipLabel.setBounds(15, 28, 70, 30);
-        textIp.setBounds(40, 28, 100, 30);
-        portLabel.setBounds(180, 28, 50, 30);
-        textPort.setBounds(220, 28, 50, 30);
-        nameLabel.setBounds(300, 28, 100, 30);
-        connectBtn.setBounds(400, 28, 150, 30);
-        pathLabel.setBounds(600, 28, 600, 30);
-        browseBtn.setBounds(1050, 28, 100, 30);
-        loadBtn.setBounds(1050, 80, 100, 30);
+        ipLabel.setBounds(110, 28, 200, 30);
+        textIp.setBounds(140, 28, 100, 30);
+        portLabel.setBounds(400, 28, 200, 30);
+        textPort.setBounds(450, 28, 50, 30);
+        nameLabel.setBounds(650, 28, 200, 30);
+        connectBtn.setBounds(980, 28, 150, 30);
+        pathLabel.setBounds(400, 80, 600, 30);
+        browseBtn.setBounds(950, 80, 100, 30);
+        loadBtn.setBounds(1060, 80, 100, 30);
 
         connectBtn.setBackground(Color.PINK);
         loadBtn.setBackground(Color.PINK);
         browseBtn.setBackground(Color.PINK);
-        pathLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 18));
+        pathLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
         pathLabel.setForeground(Color.orange);
-        ipLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 15));
+        ipLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
         ipLabel.setForeground(Color.orange);
-        portLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 15));
+        portLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
         portLabel.setForeground(Color.orange);
-        nameLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 15));
+        nameLabel.setFont(new Font("Gill Sans MT", Font.BOLD, 20));
         nameLabel.setForeground(Color.orange);
 
 
