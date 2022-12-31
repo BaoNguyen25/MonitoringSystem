@@ -66,7 +66,6 @@ public class ServerManageFrame extends JFrame implements ActionListener{
         clients = new JList<>();
         JScrollPane paneUser = new JScrollPane(clients);
         clients.addListSelectionListener(e -> {
-
             if (!e.getValueIsAdjusting()) {
                 JList source = (JList) e.getSource();
                 String selected = source.getSelectedValue().toString();

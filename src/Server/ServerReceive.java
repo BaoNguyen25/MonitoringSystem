@@ -141,6 +141,26 @@ public class ServerReceive implements Runnable{
                     ServerManageFrame.jobsModel.addRow(obj);
                     ServerManageFrame.table.setModel(ServerManageFrame.jobsModel);
 
+                } else if (info.equals("12")) {
+
+                    DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+                    Date date = new Date();
+
+                    Object[] obj = new Object[] { ServerManageFrame.jobsModel.getRowCount() + 1, path,
+                            dateFormat.format(date), "Modified",
+                            name,
+                            msg };
+
+                    String data = "{" + (ServerManageFrame.jobsModel.getRowCount() + 1) + ","
+                            + path + "," +
+                            dateFormat.format(date) + "," + "Modified" + "," +
+                            name + "," +
+                            msg + "}";
+
+                    FileHandler fh = new FileHandler();
+                    fh.writeToFile(data, ServerManageFrame.pathDirectory);
+                    ServerManageFrame.jobsModel.addRow(obj);
+                    ServerManageFrame.table.setModel(ServerManageFrame.jobsModel);
                 }
             }
         } catch(IOException e) {
